@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Model\Product;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +24,27 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('style/home');
+        // $products = Product::published()->orderBy('id' , 'desc');
+        // if(request()->has('search') && request()->get('search') != ''){
+        //     $products = $products->where('name' , 'like' , "%".request()->get('search')."%");
+        // }
+        // $products = $products->paginate(30);
+        return view('style.home' );
+    }
+
+    
+
+    public function login_test()
+    {
+        return view('auth.login');
+    }
+    public function show($id){
+
+        $products = Product::find($id);
+
+        // $cat = Category::findOrFail($id);
+        // $videos = Video::published()->where('cat_id', $id)->orderBy('id' , 'desc')->paginate(30);
+
+        return view('style.home' , compact('products'));
     }
 }

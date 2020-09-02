@@ -14,7 +14,7 @@ use Mail;
 class AdminAuth extends Controller {
 	//
 
-	public function login() {
+	public function login9() {
 		return view('admin.login');
 	}
 

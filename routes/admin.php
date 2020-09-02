@@ -1,7 +1,11 @@
 <?php
+
+
+
+
 Route::group(['prefix' => 'admin','namespace' => 'Admin'], function () {
     Config::set('auth.defines', 'admin');
-    Route::get('login','AdminAuth@login')->name('login');
+    Route::get('login','AdminAuth@login9')->name('login9');
     Route::post('login','AdminAuth@dologin')->name('dologin');
     Route::get('forgot/password','AdminAuth@forgot_password');
     Route::post ('forgot/password','AdminAuth@forgot_password_post');
@@ -67,6 +71,11 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin'], function () {
 
         Route::resource('auctions', 'AuctionsController');
         Route::delete('auctions/destory/all', 'AuctionsController@multi_delete');
+
+        Route::resource('carts', 'CartsController');
+        Route::delete('carts/destory/all', 'CartsController@multi_delete');
+
+        
 
         Route::get('/', function () {
             return view('admin.home');

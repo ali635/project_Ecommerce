@@ -314,6 +314,21 @@
       <li class=""><a href="{{ aurl('bids') }}"><i class="fa fa-tag"></i> {{ trans('admin.bids') }}</a></li>
     </ul>
   </li>
+
+  <li class="treeview {{ active_menu('carts')[0] }}">
+    <a href="#">
+      <i class="fa fa-tag"></i> <span>{{ trans('admin.carts') }}</span>
+      @if (lang()=='en')
+      <span class="pull-right-container">
+        <i class="fa fa-angle-left pull-right"></i>
+      </span>     
+      @endif
+     
+    </a>
+    <ul class="treeview-menu" style="{{ active_menu('carts')[1] }}">
+      <li class=""><a href="{{ aurl('carts') }}"><i class="fa fa-tag"></i> {{ trans('admin.carts') }}</a></li>
+    </ul>
+  </li>
 </ul>
 </section>
 <!-- /.sidebar -->

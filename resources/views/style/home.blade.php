@@ -20,7 +20,7 @@
                                 <button type="button" class="btn btn-default get">Get it now</button>
                             </div>
                             <div class="col-sm-6">
-                                <img src="{{ url('design/style2') }}/images/home/girl1.jpg" class="girl img-responsive" alt="" />
+                                <img src="{{ url('design/style2') }}/images/home/girl2.png" class="girl img-responsive" alt="" />
                                 <img src="{{ url('design/style2') }}/images/home/pricing.png"  class="pricing" alt="" />
                             </div>
                         </div>

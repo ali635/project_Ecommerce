@@ -18,7 +18,7 @@ class CreateAuctionsTable extends Migration
             $table->string('name_ar');
             $table->string('name_en');
             $table->bigInteger('price');
-            $table->bigInteger('hights_price');
+            $table->bigInteger('hights_price')->nullable();
             $table->text('description');
 
             $table->date('start_auction_at')->nullable();

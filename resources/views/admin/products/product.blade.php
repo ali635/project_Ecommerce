@@ -81,7 +81,6 @@
   <div class="box-body">
     {!! Form::open(['url'=>aurl('products'),'method'=>'put','files'=>true, 'id'=>'product_form']) !!}
 
-    <a href="#" class="btn btn-primary save">{{ trans('admin.save') }}    <i class="fa fa-floppy-o"></i></a>
     <a href="#" class="btn btn-success save_and_continue">{{ trans('admin.save_and_continue') }}    <i class="fa fa-floppy-o"></i>
     <i class="fa fa-spin fa-spinner loading_copy hidden"></i>
     </a>
@@ -117,10 +116,7 @@
       </div>
     </div>
     <hr>
-    <a href="#" class="btn btn-primary save">{{ trans('admin.save') }}    <i class="fa fa-floppy-o"></i></a>
-    <a href="#" class="btn btn-success save_and_continue">{{ trans('admin.save_and_continue') }}    <i class="fa fa-floppy-o"></i></a>
-    <a href="#" class="btn btn-info copy_product">{{ trans('admin.copy_product') }}    <i class="fa fa-copy"></i></a>
-    <a href="#" class="btn btn-danger delete">{{ trans('admin.delete') }}  <i class="fa fa-trash"></i></a>
+    
 
     {!! Form::close() !!}
   </div>

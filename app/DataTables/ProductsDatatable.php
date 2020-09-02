@@ -97,10 +97,18 @@ class ProductsDatatable extends DataTable {
 				'data'  => 'id',
 				'title' => '#',
 			], [
-				'name'  => 'title',
-				'data'  => 'title',
-				'title' => trans('admin.title'),
-			], [
+				'name'  => 'title_ar',
+				'data'  => 'title_ar',
+				'title' => trans('admin.title_ar'),
+			],[
+				'name'  => 'title_en',
+				'data'  => 'title_en',
+				'title' => trans('admin.title_en'),
+			],[
+				'name'  => 'code',
+				'data'  => 'code',
+				'title' => trans('admin.product_code'),
+			],[
 				'name'  => 'created_at',
 				'data'  => 'created_at',
 				'title' => trans('admin.created_at'),

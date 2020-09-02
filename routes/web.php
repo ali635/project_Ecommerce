@@ -1,5 +1,6 @@
 <?php
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,6 +17,10 @@ Route::group(['middleware' => 'Maintenance'], function () {
     }); 
 });
 
+Route::get('test', function () {
+    return view('auth.login')->name('mohamed');
+});
+
 Route::get('maintenance', function () {
     if(setting()->status == 'open')
     {
@@ -26,4 +31,4 @@ Route::get('maintenance', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/','HomeController@welcome')->name('frontend.landing');
+

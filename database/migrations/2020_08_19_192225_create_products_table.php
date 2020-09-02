@@ -15,9 +15,12 @@ class CreateProductsTable extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('title')->nullable();
+            $table->string('title_ar')->nullable();
+            $table->string('title_en')->nullable();
             $table->string('photo')->nullable();
-            $table->longtext('content')->nullable();
+            $table->longtext('content_ar')->nullable();
+            $table->longtext('content_en')->nullable();
+            $table->string('code')->nullable();
             
             $table->unsignedBigInteger('department_id')->nullable();
 			$table->foreign('department_id')->references('id')->on('departments')->onDelete('cascade');
