@@ -25,24 +25,14 @@
                     {!! Form::text('address',old('address'),['class'=>'form-control']) !!}
                   </div>
                   <div class="form-group">
-                    {!! Form::label('phone',trans('admin.phone')) !!}
-                    {!! Form::text('phone',old('phone'),['class'=>'form-control']) !!}
+                    {!! Form::label('mobile',trans('admin.mobile')) !!}
+                    {!! Form::text('mobile',old('mobile'),['class'=>'form-control']) !!}
                   </div>
-
-                  <div class="form-group">
-                    {!! Form::label('city_id',trans('admin.city_id')) !!}
-                    {!! Form::select('city_id',App\Model\City::pluck('city_name_'.session('lang'),'id'),old('city_id'),['class'=>'form-control']) !!}
-                  </div>
-
-                  <div class="form-group">
-                    {!! Form::label('state_id',trans('admin.state_id')) !!}
-                    {!! Form::select('state_id',App\Model\State::pluck('state_name_'.session('lang'),'id'),old('state_id'),['class'=>'form-control']) !!}
-                  </div>
-                  
                   <div class="form-group">
                     {!! Form::label('password',trans('admin.password')) !!}
                     {!! Form::password('password',['class'=>'form-control']) !!}
                   </div>
+                
                   <div class="form-group">
                     {!! Form::label('level',trans('admin.level')) !!}
                     {!! Form::select('level',['user'=>trans('admin.usera'),'vendor'=>trans('admin.vendor'),'company'=>trans('admin.company'),

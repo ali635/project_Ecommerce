@@ -21,13 +21,18 @@
                     {!! Form::email('email',$user->email,['class'=>'form-control']) !!}
                   </div>
                   <div class="form-group">
-                    {!! Form::label('address',trans('admin.address')) !!}
-                    {!! Form::text('address',$user->address,['class'=>'form-control']) !!}
-                  </div>
-                  <div class="form-group">
                     {!! Form::label('password',trans('admin.password')) !!}
                     {!! Form::password('password',['class'=>'form-control']) !!}
                   </div>
+                  <div class="form-group">
+                    {!! Form::label('mobile',trans('admin.mobile')) !!}
+                    {!! Form::tel('mobile',$user->mobile,['class'=>'form-control']) !!}
+                  </div>
+                  <div class="form-group">
+                    {!! Form::label('address',trans('admin.address')) !!}
+                    {!! Form::text('address',$user->address,['class'=>'form-control']) !!}
+                  </div>
+               <div class="clearfix"></div>
                   <div class="form-group">
                     {!! Form::label('level',trans('admin.level')) !!}
                     {!! Form::select('level',['user'=>trans('admin.usera'),'vendor'=>trans('admin.vendor'),'company'=>trans('admin.company'),

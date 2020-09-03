@@ -14,7 +14,7 @@
                 {!! Form::open(['url'=>aurl('settings'),'files'=>true]) !!}
                 <div class="form-group">
                   {!! Form::label('sitename_ar',trans('admin.sitename_ar')) !!}
-                  {!! Form::text('sitename_ar',setting()->sitename_ar,['class'=>'form-control']) !!}
+                  {!! Form::text('sitename_ar',setting()->site_name_ar,['class'=>'form-control']) !!}
                 </div>
                 <div class="form-group">
                   {!! Form::label('sitename_en',trans('admin.sitename_en')) !!}

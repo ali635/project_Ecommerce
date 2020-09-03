@@ -37,18 +37,14 @@ class UsersController extends Controller {
 			'level'    => 'required|in:user,company,vendor', //user / company / vendor
 			'email'    => 'required|email|unique:users',
 			'address'  => 'required|string',
-			'city_id'  => 'required|numeric',
-			'state_id' => 'required|numeric',
-			'phone'	   => 'required|numeric',
+			'mobile'    => 'required|regex:/(968)[0-8]{8}/|unique:users',
 			'password' => 'required|min:6'
 		], [], [
 			'name'     => trans('admin.name'),
 			'level'    => trans('admin.level'),
 			'email'    => trans('admin.email'),
 			'address'  => trans('admin.address'),
-			'city_id'  => trans('admin.city_id'),
-			'state_id' => trans('admin.state_id'),
-			'phone'	   => trans('admin.phone'),
+			'mobile'   => trans('admin.mobile'),
 			'password' => trans('admin.password'),
 		]);
 		$data['password'] = bcrypt(request('password'));
@@ -92,20 +88,16 @@ class UsersController extends Controller {
 		[
 			'name'     => 'required',
 			'level'    => 'required|in:user,company,vendor', //user / company / vendor
-			'email'    => 'required|email|unique:users',
+			'email'    => 'required|email|unique:users,email,'.$id,
 			'address'  => 'required|string',
-			'city_id'  => 'required|numeric',
-			'state_id' => 'required|numeric',
-			'phone'	   => 'required|numeric',
-			'password' => 'required|min:6'
+			'mobile'    => 'required|regex:/(968)[0-8]{8}/|unique:users',
+			'password' => 'sometimes|nullable|min:6'
 		], [], [
 			'name'     => trans('admin.name'),
 			'level'    => trans('admin.level'),
 			'email'    => trans('admin.email'),
 			'address'  => trans('admin.address'),
-			'city_id'  => trans('admin.city_id'),
-			'state_id' => trans('admin.state_id'),
-			'phone'	   => trans('admin.phone'),
+			'mobile'	   => trans('admin.mobile'),
 			'password' => trans('admin.password'),
 		]);
 		if (request()->has('password')) {
@@ -124,7 +116,7 @@ class UsersController extends Controller {
 	 */
 	public function destroy($id) {
 		User::find($id)->delete();
-		session()->flash('success', trans('admin.deleted_record'));
+		session()->flash('success', trans('admin.delete_record'));
 		return redirect(aurl('users'));
 	}
 

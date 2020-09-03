@@ -19,11 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->string('address');
-            $table->unsignedBigInteger('city_id');
-            $table->foreign('city_id')->references('id')->on('cities')->onDelete('cascade');
-            $table->unsignedBigInteger('state_id');
-            $table->foreign('state_id')->references('id')->on('states')->onDelete('cascade');
+            $table->string('address');        
             $table->string('mobile')->nullable();
             $table->enum('level',['user', 'vendor', 'company']);
             $table->rememberToken();
