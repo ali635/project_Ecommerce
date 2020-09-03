@@ -32,17 +32,25 @@ class UsersController extends Controller {
 	 */
 	public function store() {
 		$data = $this->validate(request(),
-			[
-				'name'     => 'required',
-				'level'    => 'required|in:user,company,vendor', //user / company / vendor
-				'email'    => 'required|email|unique:users',
-				'password' => 'required|min:6'
-			], [], [
-				'name'     => trans('admin.name'),
-				'level'    => trans('admin.level'),
-				'email'    => trans('admin.email'),
-				'password' => trans('admin.password'),
-			]);
+		[
+			'name'     => 'required',
+			'level'    => 'required|in:user,company,vendor', //user / company / vendor
+			'email'    => 'required|email|unique:users',
+			'address'  => 'required|string',
+			'city_id'  => 'required|numeric',
+			'state_id' => 'required|numeric',
+			'phone'	   => 'required|numeric',
+			'password' => 'required|min:6'
+		], [], [
+			'name'     => trans('admin.name'),
+			'level'    => trans('admin.level'),
+			'email'    => trans('admin.email'),
+			'address'  => trans('admin.address'),
+			'city_id'  => trans('admin.city_id'),
+			'state_id' => trans('admin.state_id'),
+			'phone'	   => trans('admin.phone'),
+			'password' => trans('admin.password'),
+		]);
 		$data['password'] = bcrypt(request('password'));
 		User::create($data);
 		session()->flash('success', trans('admin.record_added'));
@@ -81,17 +89,25 @@ class UsersController extends Controller {
 	public function update(Request $r, $id) {
 
 		$data = $this->validate(request(),
-			[
-				'name'     => 'required',
-				'level'    => 'required|in:user,company,vendor',
-				'email'    => 'required|email|unique:users,email,'.$id,
-				'password' => 'sometimes|nullable|min:6'
-			], [], [
-				'name'     => trans('admin.name'),
-				'level'    => trans('admin.level'),
-				'email'    => trans('admin.email'),
-				'password' => trans('admin.password'),
-			]);
+		[
+			'name'     => 'required',
+			'level'    => 'required|in:user,company,vendor', //user / company / vendor
+			'email'    => 'required|email|unique:users',
+			'address'  => 'required|string',
+			'city_id'  => 'required|numeric',
+			'state_id' => 'required|numeric',
+			'phone'	   => 'required|numeric',
+			'password' => 'required|min:6'
+		], [], [
+			'name'     => trans('admin.name'),
+			'level'    => trans('admin.level'),
+			'email'    => trans('admin.email'),
+			'address'  => trans('admin.address'),
+			'city_id'  => trans('admin.city_id'),
+			'state_id' => trans('admin.state_id'),
+			'phone'	   => trans('admin.phone'),
+			'password' => trans('admin.password'),
+		]);
 		if (request()->has('password')) {
 			$data['password'] = bcrypt(request('password'));
 		}

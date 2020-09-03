@@ -21,6 +21,25 @@
                     {!! Form::email('email',old('email'),['class'=>'form-control']) !!}
                   </div>
                   <div class="form-group">
+                    {!! Form::label('address',trans('admin.address')) !!}
+                    {!! Form::text('address',old('address'),['class'=>'form-control']) !!}
+                  </div>
+                  <div class="form-group">
+                    {!! Form::label('phone',trans('admin.phone')) !!}
+                    {!! Form::text('phone',old('phone'),['class'=>'form-control']) !!}
+                  </div>
+
+                  <div class="form-group">
+                    {!! Form::label('city_id',trans('admin.city_id')) !!}
+                    {!! Form::select('city_id',App\Model\City::pluck('city_name_'.session('lang'),'id'),old('city_id'),['class'=>'form-control']) !!}
+                  </div>
+
+                  <div class="form-group">
+                    {!! Form::label('state_id',trans('admin.state_id')) !!}
+                    {!! Form::select('state_id',App\Model\State::pluck('state_name_'.session('lang'),'id'),old('state_id'),['class'=>'form-control']) !!}
+                  </div>
+                  
+                  <div class="form-group">
                     {!! Form::label('password',trans('admin.password')) !!}
                     {!! Form::password('password',['class'=>'form-control']) !!}
                   </div>
