@@ -46,9 +46,13 @@
                     {!! Form::text('price',old('price'),['class'=>'form-control']) !!}
                   </div>
                   <div class="form-group ">
-                      {!! Form::label('description',trans('admin.description')) !!}
-                      {!! Form::textarea('description',old('description'),['class'=>'form-control','placeholder'=>trans('admin.description')]) !!}
+                      {!! Form::label('description_ar',trans('admin.description_ar')) !!}
+                      {!! Form::textarea('description_ar',old('description_ar'),['class'=>'form-control','placeholder'=>trans('admin.description_ar')]) !!}
                   </div>
+                  <div class="form-group ">
+                    {!! Form::label('description_en',trans('admin.description_en')) !!}
+                    {!! Form::textarea('description_en',old('description_en'),['class'=>'form-control','placeholder'=>trans('admin.description_en')]) !!}
+                </div>
                   <div class="form-group col-md-4 col-lg-4 col-sm-4 col-xs-12">
                       {!! Form::label('start_auction_at',trans('admin.start_auction_at')) !!}
                       {!! Form::text('start_auction_at',old('start_auction_at'),['class'=>'form-control datepicker','placeholder'=>trans('admin.start_auction_at'),'autocomplete'=>'off']) !!}
@@ -65,9 +69,12 @@
                   
                   <div class="form-group">
                     {!! Form::label('product_id',trans('admin.product_id')) !!}
-                    {!! Form::select('product_id',App\Model\Product::pluck('title','id'),old('product_id'),['class'=>'form-control']) !!}
+                    {!! Form::select('product_id',App\Model\Product::pluck('title_ar','id'),old('product_id'),['class'=>'form-control']) !!}
                   </div>
-                  
+                  <div class="form-group">
+                    {!! Form::label('product_id',trans('admin.product_id')) !!}
+                    {!! Form::select('product_id',App\Model\Product::pluck('title_en','id'),old('product_id'),['class'=>'form-control']) !!}
+                  </div>
                 
               
                   {!! Form::submit(trans('admin.add88'),['class'=>'btn btn-primary']) !!}

@@ -197,6 +197,8 @@ return [
     'quantity'                     => 'الكمية',
     'price'                        => 'سعر المنتج',
     'product_code'                 => 'كود المنتج',
+    'description_ar'               => 'الوصف باللغة العربية',
+    'description_en'               => 'الوصف باللغة الانجليزية',
     
 
 ];
