@@ -31,7 +31,7 @@ class HomeController extends Controller
         // $products = $products->paginate(30);
 
         $products = Product::getRandProducts();
-        return view('style.home')->with(['products' => $products]);
+        return view('home')->with(['products' => $products]);
     }
 
 

@@ -15,6 +15,42 @@
 
 Route::get('/', 'HomeController@index')->name('home');
 
+Route::get('/cart', function(){
+    return view('cart');
+});
+
+Route::get('/product', function(){
+    return view('product');
+});
+
+Route::get('/checkout', function(){
+    return view('checkout');
+});
+
+Route::get('/shop', function(){
+    return view('shop');
+});
+
+Route::get('/login2', function(){
+    return view('login');
+});
+
+Route::get('/blog', function(){
+    return view('blog');
+});
+
+Route::get('/blog-single', function(){
+    return view('blog-single');
+});
+
+Route::get('/contact-us', function(){
+    return view('contact-us');
+});
+
+Route::get('/404', function(){
+    return view('404');
+});
+
 
 // Route::group(['middleware' => 'Maintenance'], function () {
 //     Route::get('/', function () {
