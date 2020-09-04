@@ -35,10 +35,15 @@ class Product extends Model
         'reason'  		,
     ];
 
+    public static function getRandProducts()
+    {
+        return self::all();
+    }
+
     public function related() {
         return $this->hasMany(\App\Model\RelatedProduct::class,'product_id','id');
     }
-   
+
     public function mall_product() {
         return $this->hasMany(\App\Model\MallProducts::class,'product_id','id');
     }

@@ -12,10 +12,10 @@ class HomeController extends Controller
      *
      * @return void
      */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware('auth');
+    // }
 
     /**
      * Show the application dashboard.
@@ -29,15 +29,18 @@ class HomeController extends Controller
         //     $products = $products->where('name' , 'like' , "%".request()->get('search')."%");
         // }
         // $products = $products->paginate(30);
-        return view('style.home' );
+
+        $products = Product::getRandProducts();
+        return view('style.home')->with(['products' => $products]);
     }
 
-    
+
 
     public function login_test()
     {
         return view('auth.login');
     }
+
     public function show($id){
 
         $products = Product::find($id);
