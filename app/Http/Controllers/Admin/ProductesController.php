@@ -40,7 +40,7 @@ class ProductesController extends Controller
             ->whereIn('department_id',$dep_list)
             ->orWhere('department_id',request('dep_id'))
             ->pluck('name_' . session('lang'), 'id');
-            
+
             //$size_2   = Size::
             //$sizes    = array_merge(json_decode($size_1, true), json_decode($size_2, true));
            // return $sizes;
@@ -48,7 +48,7 @@ class ProductesController extends Controller
             return view('admin.products.ajax.size_weight',[
                 'sizes'     => $sizes,
                 'weights'   => $weights,
-                'product'   => Product::find(request('product_id')), 
+                'product'   => Product::find(request('product_id')),
             ])->render();
 
         } else {
@@ -266,7 +266,7 @@ class ProductesController extends Controller
         }
         Product::where('id',$id)->update($data);
         return response(['status'=>true,'message'=>trans('admin.updated_record')],200);
-       
+
     }
 
     /**
@@ -323,13 +323,13 @@ class ProductesController extends Controller
                         'relation_id'   => $create->id,
                     ]);
                 }
-            
+
             return response([
                 'status' =>true,
                 'message'=>trans('admin.product_created'),
                 'id'     =>$create->id,
             ],200);
-        
+
     }
 
 
@@ -337,7 +337,7 @@ class ProductesController extends Controller
         $products = Product::find($id);
         Storage::delete($products->photo);
         up()->delete_files($id);
-        $products->delete(); 
+        $products->delete();
     }
     public function destroy($id)
     {
@@ -352,7 +352,7 @@ class ProductesController extends Controller
             foreach(request('item') as $id) {
                 $this->deleteProduct($id);
             }
-        } else 
+        } else
         {
             $this->deleteProduct(request('item'));
         }
@@ -372,7 +372,7 @@ class ProductesController extends Controller
                 return response([
                     'status'        =>true,
                     'result'        =>count($products) > 0? $products:'',
-                    'count'         =>count($products)         
+                    'count'         =>count($products)
                 ],200);
             }
         }

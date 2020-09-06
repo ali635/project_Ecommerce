@@ -12,36 +12,23 @@
 |
 */
 
+use App\Http\Controllers\Images;
 
 Route::get('/', 'HomeController@index')->name('home');
 
+Route::get('/shop', 'ShopController@index')->name('shop.index');
+
+Route::get('/product/{id}', 'ProductController@show')->name('product.show');
+
 Route::get('/cart', function(){
     return view('cart');
-});
-
-Route::get('/product', function(){
-    return view('product');
 });
 
 Route::get('/checkout', function(){
     return view('checkout');
 });
 
-Route::get('/shop', function(){
-    return view('shop');
-});
-
-Route::get('/login2', function(){
-    return view('login');
-});
-
-Route::get('/blog', function(){
-    return view('blog');
-});
-
-Route::get('/blog-single', function(){
-    return view('blog-single');
-});
+Route::get('/blog', 'BlogController@index')->name('blog.index');
 
 Route::get('/contact-us', function(){
     return view('contact-us');
@@ -50,7 +37,6 @@ Route::get('/contact-us', function(){
 Route::get('/404', function(){
     return view('404');
 });
-
 
 // Route::group(['middleware' => 'Maintenance'], function () {
 //     Route::get('/', function () {
@@ -70,7 +56,5 @@ Route::get('/404', function(){
 //     return view('style.maintenance');
 // });
 
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
+// Auth::routes();
 

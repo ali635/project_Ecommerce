@@ -37,7 +37,33 @@ class Product extends Model
 
     public static function getRandProducts()
     {
-        return self::all();
+        return self::inRandomOrder()->where('status', '=', 'active')->take(12)->get();
+    }
+
+    public static function recommendProducts()
+    {
+        return self::inRandomOrder()->where('status', '=', 'active')->take(3)->get();
+    }
+
+    public function departmends()
+    {
+        return $this->hasOne("App\Model\Department");
+    }
+
+    public function tradeMark()
+    {
+        return $this->hasOne(\App\Model\TradeMark::class, 'id', 'trade_id');
+    }
+
+    public static function inStock($id)
+    {
+        $product_stock_count = self::find($id);
+
+        if ($product_stock_count->stock > 0) {
+            return "In Stock";
+        } else {
+            return "Out Stock";
+        }
     }
 
     public function related() {

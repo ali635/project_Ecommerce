@@ -1,5 +1,6 @@
 <?php
 
+use App\Model\Product;
 use Illuminate\Support\Facades\Request;
 use phpDocumentor\Reflection\DocBlock\Tags\See;
 
@@ -9,7 +10,7 @@ if (!function_exists('setting')) {
 	}
 }
 if (!function_exists('get_parent')) {
-    function get_parent($dep_id) 
+    function get_parent($dep_id)
     {
         $list_department = [];
         $department = \App\Model\Department::find($dep_id);
@@ -26,7 +27,7 @@ if (!function_exists('get_parent')) {
 if(!function_exists('check_mall')){
     function check_mall($id,$pid){
         return \App\Model\MallProducts::where('product_id',$pid)->where('mall_id',$id)->count() > 0?true:false;
-    } 
+    }
 }
 ////////// Scan Mall Id Exists /////
 if (!function_exists('load_dep')) {
@@ -100,7 +101,7 @@ if(!function_exists('active_menu'))
     {
         if(preg_match('/'.$link.'/i', Request::segment(2)))
         {
-            return ['menu-open', 'display:block'];    
+            return ['menu-open', 'display:block'];
         } else {
             return['',''];
         }
@@ -127,7 +128,7 @@ if(!function_exists('direction'))
                 return 'rtl';
             } else {
                 return 'ltr';
-            } 
+            }
         } else {
             return 'ltr';
         }
@@ -170,4 +171,11 @@ if (!function_exists('v_image')) {
             return 'image|mimes:'.$ext;
         }
     }
+}
+
+//////////////// check product in stock function /////////////
+
+function inStock($id)
+{
+    return Product::inStock($id);
 }

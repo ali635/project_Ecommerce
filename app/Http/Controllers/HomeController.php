@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Model\Department;
 use App\Model\Product;
+use App\Model\TradeMark;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -24,14 +26,15 @@ class HomeController extends Controller
      */
     public function index()
     {
-        // $products = Product::published()->orderBy('id' , 'desc');
-        // if(request()->has('search') && request()->get('search') != ''){
-        //     $products = $products->where('name' , 'like' , "%".request()->get('search')."%");
-        // }
-        // $products = $products->paginate(30);
 
         $products = Product::getRandProducts();
-        return view('home')->with(['products' => $products]);
+        $department = Department::all();
+        $brands = TradeMark::all();
+        return view('home')->with([
+            'products' => $products,
+            'department' => $department,
+            'brands' => $brands
+        ]);
     }
 
 

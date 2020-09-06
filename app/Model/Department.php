@@ -19,4 +19,8 @@ class Department extends Model {
 		return $this->hasMany('App\Model\Department', 'id', 'parent_id');
 	}
 
+    public function products()
+    {
+        return $this->hasMany('App\Model\Product');
+    }
 }

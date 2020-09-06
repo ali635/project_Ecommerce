@@ -10,5 +10,10 @@ class TradeMark extends Model {
 		'name_ar',
 		'name_en',
 		'logo',
-	];
+    ];
+
+    public function products()
+    {
+        return $this->hasMany('App\Model\Product');
+    }
 }
